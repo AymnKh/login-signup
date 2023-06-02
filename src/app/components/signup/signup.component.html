@@ -1,0 +1,111 @@
+<section class="d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div
+            class="spinner-grow m-auto p-5 text-primary"
+            *ngIf="loadding"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="m-auto" *ngIf="errMsg">
+            <h3 class="text-danger">{{errMsg}}</h3>
+          </div>
+          <form [formGroup]="signupForm" (ngSubmit)="register()">
+            <div class="mb-3">
+              <label class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                formControlName="firstname"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                formControlName="lastname"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                formControlName="username"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <input
+                type="email"
+                class="form-control"
+                id="phone"
+                formControlName="phone"
+              />
+            </div>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-6">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    formControlName="password"
+                  />
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Password match</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="Re-password"
+                    formControlName="repassword"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">photo</label>
+              <input
+                class="form-control form-control-sm"
+                id="photo"
+                type="file"
+                (change)="onSelectPhoto($event)"
+              />
+            </div>
+            <div *ngIf="imagePerview !== '' && imagePerview">
+              <img class="img-fluid perview" [src]="imagePerview" alt="" />
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn btn-primary px-5"
+                [disabled]="signupForm.invalid && !errMsg"
+              >
+                Submit
+              </button>
+              or <a routerLink="/login">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

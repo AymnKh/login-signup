@@ -1,0 +1,15 @@
+<section class="d-flex justify-content-center align-items-center">
+    <div class="card">
+      <img class="card-img-top img-fluid" [src]="user.image"  alt="Title">
+      <div class="card-body">
+        <h4 class="card-title">
+            {{user.firstname}} {{user.lastname}}
+        </h4>
+        <p class="card-text">{{user.username}}</p>
+        <p class="card-text">{{user.email}}</p>
+        <p class="card-text">{{user.phone}}</p>
+      </div>
+          <button class="btn btn-danger" (click)="logOut()">log out</button>
+    </div>
+
+</section>
